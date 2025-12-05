@@ -11,9 +11,10 @@ import (
 )
 
 type Config struct {
-	Name   string       `json:"name"`
-	Cgroup CgroupConfig `json:"cgroup"`
-	Rootfs RootfsConfig `json:"rootfs"`
+	Name       string       `json:"name"`
+	EntryPoint []string     `json:"entry_point"`
+	Cgroup     CgroupConfig `json:"cgroup"`
+	Rootfs     RootfsConfig `json:"rootfs"`
 }
 
 func main() {
@@ -23,7 +24,7 @@ func main() {
 	runtime.LockOSThread()
 	defer runtime.UnlockOSThread()
 
-	// エントリーポイント以外の設定の読み込み
+	// 設定の読み込み
 	configFile, err := os.ReadFile("config.json")
 	if err != nil {
 		log.Fatalln(err)
@@ -33,10 +34,10 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	// 指定されたコマンドの実行
+	// 指定されたサブコマンドの実行
 	switch os.Args[1] {
 	case "run":
-		if err := run(c, os.Args[2:]); err != nil {
+		if err := run(c); err != nil {
 			log.Fatalln(err)
 		}
 
@@ -45,8 +46,8 @@ func main() {
 	}
 }
 
-// runコマンド
-func run(c Config, entryPoint []string) error {
+// runサブコマンド
+func run(c Config) error {
 	// Namespaceの設定
 	if err := SetupNamespace(); err != nil {
 		return err
@@ -63,8 +64,8 @@ func run(c Config, entryPoint []string) error {
 		return err
 	}
 
-	// コンテナ(仮)内でエントリーポイントを実行
-	cmd := exec.Command(entryPoint[0], entryPoint[1:]...)
+	// 作成した簡易コンテナ内でエントリーポイントを実行
+	cmd := exec.Command(c.EntryPoint[0], c.EntryPoint[1:]...)
 	cmd.Stdin, cmd.Stdout, cmd.Stderr = os.Stdin, os.Stdout, os.Stderr
 	return cmd.Run()
 }
