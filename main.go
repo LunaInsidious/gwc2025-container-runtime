@@ -68,5 +68,9 @@ func run(c Config) error {
 	// 作成した簡易コンテナ内でエントリーポイントを実行
 	cmd := exec.Command(c.EntryPoint[0], c.EntryPoint[1:]...)
 	cmd.Stdin, cmd.Stdout, cmd.Stderr = os.Stdin, os.Stdout, os.Stderr
-	return cmd.Run()
+	if err := cmd.Run(); err != nil {
+		return errors.WithStack(err)
+	}
+
+	return nil
 }
