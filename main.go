@@ -38,7 +38,7 @@ func main() {
 	// 指定されたサブコマンドの実行
 	switch os.Args[1] {
 	case "run":
-		if err := run(c); err != nil {
+		if err := runCommand(c); err != nil {
 			log.Fatalln(errors.StackTraces(err))
 		}
 
@@ -48,7 +48,7 @@ func main() {
 }
 
 // runサブコマンド
-func run(c Config) error {
+func runCommand(c Config) error {
 	// cgroupの設定
 	if err := SetupCgroup(c.Name, os.Getpid(), c.Cgroup); err != nil {
 		return errors.WithStack(err)
