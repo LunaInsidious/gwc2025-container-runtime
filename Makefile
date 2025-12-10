@@ -1,7 +1,7 @@
 .PHONY: init
 init: spec/config.json
 	@go mod download
-	@sudo -u root $$(which go) mod download && exit
+	@sudo $$(which go) mod download && exit
 	@/bin/echo -e "{\n  \"name\": \"container\",\n  \"entry_point\": [\"/bin/bash\"],\
 	\n  \"cgroup\": {\n    \"max_cpu_percent\": 100,\n    \"max_memory_mb\": 1024\n  },\
 	\n  \"rootfs\": {\n    \"rootfs_path\": \"./rootfs\"\n  }\n}" > config.json
