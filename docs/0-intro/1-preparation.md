@@ -10,6 +10,11 @@
 1. <https://github.com/logica0419/gwc2025-container-runtime>をフォークする
 2. フォークを普段通り自分のPCにクローンする
 
+```bash
+git clone https://github.com/{あなたのアカウント名}/gwc2025-container-runtime
+cd gwc2025-container-runtime
+```
+
 ## Dev Container (推奨)
 
 本ワークショップでは、**Dev Container**設定ファイルを用意しています。  
@@ -64,6 +69,13 @@ Dev Containersを使わなくとも、今回の**コードがLinux上で起動**
 - **Go**がインストールされている
 - **Docker**がインストールされている
 
+また、上記の準備が終わったら、以下の2つのコマンドを実行して下さい。
+
+```bash
+make init
+make rootfs
+```
+
 ### Windowsの場合
 
 [WSL](https://learn.microsoft.com/ja-jp/windows/wsl/)での構築が最も手軽です。  
@@ -81,3 +93,21 @@ VS Codeの場合、[Remote - SSH](https://marketplace.visualstudio.com/items?ite
 ### Linuxの場合
 
 ワークショップで用いるパソコンのOSが**既にLinux**であれば、そのまま使っていただいて大丈夫です。
+
+## セットアップ確認
+
+環境のセットアップが終わったら、`make check`コマンドで確認をお願いします。  
+以下のように、全ての項目が ✅ になればOKです。
+
+```console
+$ make check
+---------- 🔍セットアップ状況🔍 ----------
+
+[Linux] ✅ バージョン: GNU/Linux 6.6.87.2-microsoft-standard-WSL2
+[Go] ✅ バージョン: go version go1.25.5 linux/amd64
+[Docker] ✅ バージョン: Docker version 29.1.2, build 890dcca
+[make init] ✅ ファイル生成済み
+[make rootfs] ✅ ファイル生成済み
+
+---------- 🎉セットアップが完了しています🎉 ----------
+```
