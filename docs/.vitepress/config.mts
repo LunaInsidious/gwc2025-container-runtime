@@ -9,14 +9,7 @@ const config: UserConfig<DefaultTheme.Config> = {
     [
       "meta",
       {
-        property: "og:image",
-        content: "https://gwc2025.logica0419.dev/image.png",
-      },
-    ],
-    [
-      "meta",
-      {
-        property: "og:site_name",
+        property: "og:title",
         content: "低レベルコンテナランタイム自作講座",
       },
     ],
@@ -25,6 +18,20 @@ const config: UserConfig<DefaultTheme.Config> = {
       {
         property: "og:description",
         content: "Go Workshop Conference 2025 IN KOBEにて開催",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:url",
+        content: "https://gwc2025.logica0419.dev",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://gwc2025.logica0419.dev/image.png",
       },
     ],
   ],
