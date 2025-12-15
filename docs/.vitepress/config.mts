@@ -4,15 +4,9 @@ import type { VitePressSidebarOptions } from "vitepress-sidebar/types";
 
 const config: UserConfig<DefaultTheme.Config> = {
   title: "低レベルコンテナランタイム自作講座",
+  description: "Go Workshop Conference 2025 IN KOBEにて開催",
   head: [
     ["link", { rel: "icon", href: "/favicon.webp" }],
-    [
-      "meta",
-      {
-        property: "description",
-        content: "Go Workshop Conference 2025 IN KOBEにて開催",
-      },
-    ],
     [
       "meta",
       {
