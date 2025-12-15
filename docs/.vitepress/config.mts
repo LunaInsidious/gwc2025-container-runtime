@@ -37,6 +37,11 @@ const config: UserConfig<DefaultTheme.Config> = {
     ],
   ],
   srcDir: ".",
+  lastUpdated: true,
+  sitemap: {
+    hostname: "https://gwc2025.logica0419.dev",
+    lastmodDateOnly: false,
+  },
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
     socialLinks: [

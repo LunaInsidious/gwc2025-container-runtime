@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gwc2025.logica0419.dev/sitemap.xml
