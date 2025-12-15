@@ -9,6 +9,13 @@ const config: UserConfig<DefaultTheme.Config> = {
     [
       "meta",
       {
+        property: "description",
+        content: "Go Workshop Conference 2025 IN KOBEにて開催",
+      },
+    ],
+    [
+      "meta",
+      {
         property: "og:title",
         content: "低レベルコンテナランタイム自作講座",
       },
