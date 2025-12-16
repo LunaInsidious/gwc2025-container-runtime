@@ -33,7 +33,7 @@ int main() {
 
 Go言語は、その特性上`fork()`を**直接呼ぶことを推奨せず**、パッケージに関数を用意していません。  
 Goで新しいプロセスを生やしたい場合、基本的に`os/exec`パッケージを使う**以外の方法はありません**。  
-詳しくは[6-2](/6-go-beyond/2-no-go-runtime)で触れます。
+詳しくは[6-2](/6-go-beyond/2-no-go-runtime/)で触れます。
 
 ### [exec](https://pkg.go.dev/golang.org/x/sys/unix#Exec)
 
@@ -46,7 +46,7 @@ func Exec(argv0 string, argv []string, envv []string) error
 
 ### forkとexecの合わせ技
 
-[1-2](/1-basics/2-os.html)で見たように、**forkとexecの合わせ技**を使用することで、**別プログラムを子プロセスで実行**することが可能になります。
+[1-2](/1-basics/2-os/)で見たように、**forkとexecの合わせ技**を使用することで、**別プログラムを子プロセスで実行**することが可能になります。
 
 ![forkとexec](./1.dio.png)
 
@@ -225,7 +225,7 @@ func runCommand(c Config) error {
 
 ## 挙動が変わったことを確かめる
 
-「[今のコードの挙動を見る](.#今のコードの挙動を見る)」と同様に実行すると、挙動確認用シェルは以下のような表示になるはずです。
+「[今のコードの挙動を見る](/3-namespace/1-os-exec-syscall/#今のコードの挙動を見る)」と同様に実行すると、挙動確認用シェルは以下のような表示になるはずです。
 
 ::: tip 挙動確認用シェル
 
