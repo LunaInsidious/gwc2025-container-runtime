@@ -1,6 +1,6 @@
 # 低レベルコンテナランタイム自作講座
 
-![favicon](/favicon.webp)
+![favicon](/favicon-96x96.png)
 
 ![メインイメージ](/image.png)
 
