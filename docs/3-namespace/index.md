@@ -3,6 +3,8 @@
 **プロセス隔離の代名詞**ともいえる**Namespace**。  
 3章では、そんなNamespaceを使ったプロセスの隔離を実装していきます。
 
+この章で触るファイル: `main.go`
+
 ## 目次
 
 - [3-1. os/exec.Cmdとexec (syscall)](/3-namespace/1-os-exec-syscall/)
