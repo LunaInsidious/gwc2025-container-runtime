@@ -26,7 +26,7 @@ Dev Containerは**開発環境をコンテナとして定義**し、エディタ
   - Docker Desktopで大丈夫です
 
 ::: warning 注意
-OCI Runtimeに**runc以外**を指定している場合、構築に失敗する可能性があります (youkiでは構築できませんでした)。  
+OCI Runtimeに**youki**を指定している場合、構築が失敗してしまいます。  
 該当者はほぼいないと思いますが、念のため記載しておきます。
 :::
 
@@ -68,8 +68,6 @@ Dev Containersを使わなくとも、今回の**コードがLinux上で起動**
   - ディストリビューションは何でもOKです
 - **Go**がインストールされている
 - **Docker**がインストールされている
-- **runc**がインストールされている
-  - 基本Dockerと一緒にインストールされます
 
 また、上記の準備が終わったら、以下の2つのコマンドを実行して下さい。
 
@@ -106,8 +104,9 @@ $ make check
 ---------- 🔍セットアップ状況🔍 ----------
 
 [Linux] ✅ バージョン: GNU/Linux 6.6.87.2-microsoft-standard-WSL2
+[cgroup v2] ✅
 [Go] ✅ バージョン: go version go1.25.5 linux/amd64
-[Docker] ✅ バージョン: Docker version 29.1.2, build 890dcca
+[Docker] ✅ バージョン: Docker version 29.1.3, build f52814d
 [make init] ✅ ファイル生成済み
 [make rootfs] ✅ ファイル生成済み
 

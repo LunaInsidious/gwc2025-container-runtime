@@ -12,6 +12,13 @@ else
 	echo "[Linux] ❌ Linux上で実行して下さい"
 fi
 
+if [ "$(stat -fc %T /sys/fs/cgroup/)" = "cgroup2fs" ]; then
+  echo "[cgroup v2] ✅"
+else
+  SETUP_COMPLETED=0
+  echo "[cgroup2] ❌ cgroupがv2ではありません。OSをアップデートして下さい"
+fi
+
 if (type go >/dev/null 2>&1); then
 	echo "[Go] ✅ バージョン: $(go version)"
 else

@@ -1,5 +1,5 @@
 .PHONY: init
-init: spec/config.json
+init:
 	@go mod download
 	@sudo $$(which go) mod download
 	@/bin/echo -e "{\n  \"name\": \"container\",\n  \"entry_point\": [\"bash\"],\
@@ -18,12 +18,6 @@ rootfs:
 	@mkdir -p rootfs
 	@docker export $$(docker create ubuntu) | tar -C rootfs -xvf -
 	@cp ./dev/stress ./rootfs/usr/bin
-
-spec:
-	@mkdir spec
-
-spec/config.json: spec
-	@runc spec -b spec
 
 .PHONY: clean
 clean:
