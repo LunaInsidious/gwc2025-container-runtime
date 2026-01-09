@@ -1,5 +1,12 @@
 package main
 
+import (
+	"os"
+
+	"github.com/k1LoW/errors"
+	"golang.org/x/sys/unix"
+)
+
 // rootfs設定
 type RootfsConfig struct {
 	// ルートファイルシステムのパス
@@ -7,6 +14,13 @@ type RootfsConfig struct {
 }
 
 func SetupRootfs(c RootfsConfig) error {
-	// TODO: rootfs関連処理の実装
+	if err := unix.Chroot(c.RootfsPath); err != nil {
+		return errors.WithStack(err)
+	}
+
+	if err := os.Chdir("/"); err != nil {
+		return errors.WithStack(err)
+	}
+
 	return nil
 }
